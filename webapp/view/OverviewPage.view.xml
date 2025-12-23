@@ -1,0 +1,46 @@
+<mvc:View
+    controllerName="com.dp.zsalesorder.controller.OverviewPage"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:smarttable="sap.ui.comp.smarttable"
+    xmlns:smartfilterbar="sap.ui.comp.smartfilterbar"
+>
+  <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <!-- smartfilterbar -->
+            <smartfilterbar:SmartFilterBar
+                id="smartFilterBarId"
+                entitySet="Products"
+                enableBasicSearch="true"
+            >
+                <smartfilterbar:controlConfiguration>
+                    <smartfilterbar:ControlConfiguration
+                        id="idFilterId"
+                        label="ID"
+                        key="ID"
+                        index="0"
+                        visibleInAdvancedArea="true"
+                    />
+                    <smartfilterbar:ControlConfiguration
+                        id="nameFilterId"
+                        label="Name"
+                        key="Name"
+                        index="1"
+                        visibleInAdvancedArea="true"
+                    />
+                </smartfilterbar:controlConfiguration>
+            </smartfilterbar:SmartFilterBar>
+            <smarttable:SmartTable
+                id="productsSmartTableId"
+                entitySet="Products"
+                demandPopin="true"
+                smartFilterId="smartFilterBarId"
+                tableType="ResponsiveTable"
+                enableAutoBinding="true"
+            />
+        </content>
+    </Page>
+</mvc:View>
